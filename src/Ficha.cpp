@@ -3,7 +3,7 @@
 Ficha::Ficha(int tip, int x, int y){
    tipo=tip;
    sprite.setPosition(x,y);
-   if(!textureBlock.loadFromFile("assets/Candado.png")) cout<<"Error al cargar textura Block";
+   if(!textureBlock.loadFromFile("./assets/Candado.png")) cout<<"Error al cargar textura Block";
 }
 
 void Ficha::AsignarTextura(Texture tex){
