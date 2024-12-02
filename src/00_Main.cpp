@@ -18,76 +18,88 @@ int main(){
     }
     Sprite sprite(texture);
 
-    //Textura Fichas
-    vector<Texture> textures(2);
-    for(int i=1; i<=2; i++){
+    //Cargar Fichas
+    vector<Texture> textures(3);
+    for(int i=1; i<=3; i++){
         if(!textures[i-1].loadFromFile("./assets/"+to_string(i)+".png")) cout<<"Error al cargar la textura "<<i<<endl;
     }
-    vector<vector<Ficha>> ficha(1,vector<Ficha>(3,Ficha(0,0,0)));
-    vector<int> cantApariciones(2,0);
+
+    //Fichas Jugadores
+    vector<vector<Ficha>> fichas_jugador1(1,vector<Ficha>(3,Ficha(0,0,0)));
+    vector<vector<Ficha>> fichas_jugador2(1,vector<Ficha>(3,Ficha(0,0,0)));
+
     int tipoRandom;
 
     srand(time(NULL));
-    for(int i=0; i<1; i++){
-        for(int j=0; j<3; j++){
-            do{
-            tipoRandom=1+(rand()%2);
-            }while(cantApariciones[tipoRandom-1]==2);
-            cantApariciones[tipoRandom-1]++;
-            ficha[i][j]=Ficha(tipoRandom,150*j+(j+1)*10,900-160);
-            ficha[i][j].AsignarTextura(textures[tipoRandom-1]);
-            ficha[i][j].BloquearSprite();
-        }
+    for(int j=0; j<3; j++){
+        tipoRandom=1+(rand()%3);
+        fichas_jugador1[0][j]=Ficha(tipoRandom,150*j+(j+3)*10,740);
+        fichas_jugador1[0][j].AsignarTextura(textures[tipoRandom-1]);
+        fichas_jugador1[0][j].BloquearSprite();
+
+        tipoRandom=1+(rand()%3);
+        fichas_jugador2[0][j]=Ficha(tipoRandom,1080-(150*(3-j))-(10*(3-j)),740);
+        fichas_jugador2[0][j].AsignarTextura(textures[tipoRandom-1]);
+        fichas_jugador2[0][j].BloquearSprite();
     }
 
     //Click(Auxiliar)
     int cantDesbloqueada=0;
     int iAnt, jAnt;
-    //Espera
+
+    //Turno & Espera
+    int turno=1;
     Clock clock;
     Time time;
     
+    //Ciclo Principal
     while(window.isOpen()){
         Event event;
         while(window.pollEvent(event)){
             if(event.type==Event::Closed) window.close();
+            
             if(event.type==Event::MouseButtonPressed && event.mouseButton.button==Mouse::Left && cantDesbloqueada<3){
-                for(int i=0; i<1; i++){
+                if (turno==1){
                     for(int j=0; j<3; j++){
-                        IntRect rect(150*j+(j+1)*10,900-160,150,150);
+                        IntRect rect(150*j+(j+3)*10,740,150,150);
                         if(rect.contains(event.mouseButton.x,event.mouseButton.y)){
-                            ficha[i][j].DesbloquearSprite();
-                            if(cantDesbloqueada==0) iAnt=i,jAnt=j,cantDesbloqueada++;
-                            else if(ficha[i][j].ConsultarTipo()==ficha[iAnt][jAnt].ConsultarTipo()){
-                                ficha[i][j].Descubrir();
-                                ficha[iAnt][jAnt].Descubrir();
-                                cantDesbloqueada=0;
-                            }else{
-                                cantDesbloqueada++;
-                                clock.restart();
-                            }
+                            fichas_jugador1[0][j].DesbloquearSprite();
+                        }
+                    }
+                }else if(turno==2){
+                    for(int j=0; j<3; j++){
+                        IntRect rect(1080-(150*(3-j))-(10*(3-j)),740,150,150);
+                        if(rect.contains(event.mouseButton.x,event.mouseButton.y)){
+                            fichas_jugador2[0][j].DesbloquearSprite();
                         }
                     }
                 }
+                clock.restart();
             }
         }
 
         //Bloquear Fichas Desbloquadas
-        if(cantDesbloqueada==2 && (time=clock.getElapsedTime())>=seconds(5)){
-            for(int i=0; i<1; i++){
+        if((time=clock.getElapsedTime())>=seconds(3)){
+            if (turno==1){
                 for(int j=0; j<3; j++){
-                    if(!ficha[i][j].ConsultarEstado()) ficha[i][j].BloquearSprite();
+                    fichas_jugador1[0][j].BloquearSprite();
                 }
+                turno=2;
+                clock.restart();
+            }else if(turno==2){
+                for(int j=0; j<3; j++){
+                    fichas_jugador2[0][j].BloquearSprite();
+                }
+                turno=1;
+                clock.restart();
             }
-            cantDesbloqueada=0;
         }
-
+          
         window.clear();
         window.draw(sprite);
-        for(int i=0; i<1; i++){
-            for(int j=0; j<3; j++){
-                window.draw(ficha[i][j]);
-            }
+        for(int j=0; j<3; j++){
+            window.draw(fichas_jugador1[0][j]);
+            window.draw(fichas_jugador2[0][j]);
         }
         window.display();
     }
