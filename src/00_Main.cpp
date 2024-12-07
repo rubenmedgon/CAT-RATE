@@ -48,6 +48,10 @@ int main(){
     while (window.isOpen()){
         Event event;
         while (window.pollEvent(event)){
+            if (event.type == Event::Closed){
+                window.close();
+            }
+
             if (event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left){
                 if (turno == 1){
                     for (int j = 0; j < 3; j++){
@@ -78,7 +82,7 @@ int main(){
 
                         // Comparar las cartas seleccionadas
                         if (tipoCarta1 == tipoCarta2){
-                            cout << "¡Las cartas son iguales!" << endl;
+                            cout << "Las cartas son iguales!" << endl;
                         } else{
                             cout << "Las cartas son diferentes." << endl;
                         }
