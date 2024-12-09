@@ -3,6 +3,7 @@
 #include <vector>
 #include <time.h> 
 #include "../include/Ficha.hpp"
+#include "../include/Interfaz.hpp"
 
 using namespace std;
 using namespace sf;
@@ -44,6 +45,9 @@ int main(){
     int tipoCarta1 = -1; 
     int tipoCarta2 = -1;
 
+    //Interfaz
+    Interfaz interfaz;
+
     //Ciclo Principal
     while (window.isOpen()){
         Event event;
@@ -59,6 +63,8 @@ int main(){
                         if (rect.contains(event.mouseButton.x, event.mouseButton.y)){
                             fichas_jugador1[0][j].BloquearSprite();
                             tipoCarta1 = fichas_jugador1[0][j].ConsultarTipo(); // Registra el tipo de carta
+                            
+                            
                             for (int k = 0; k < 3; k++) {
                                 if (k != j) {
                                     fichas_jugador1[0][k].BloquearSprite();
@@ -72,23 +78,35 @@ int main(){
                     for (int j = 0; j < 3; j++){
                         IntRect rect(1080 - (150 * (3 - j)) - (10 * (3 - j)), 740, 150, 150);
                         if (rect.contains(event.mouseButton.x, event.mouseButton.y)){
-                            fichas_jugador2[0][j].BloquearSprite(); // Bloquea la carta seleccionada
                             tipoCarta2 = fichas_jugador2[0][j].ConsultarTipo(); // Registrar el tipo de carta
-                            for (int k = 0; k < 3; k++) {
-                                if (k != j) {
-                                    fichas_jugador2[0][k].BloquearSprite();
-                                }
-                            }
 
-                        // Comparar las cartas seleccionadas
-                        if (tipoCarta1 == tipoCarta2){
-                            cout << "Las cartas son iguales!" << endl;
-                        } else{
-                            cout << "Las cartas son diferentes." << endl;
+                        // Comparar las cartas seleccionadas 1=agua 2=fuego 3=planta
+                        if(tipoCarta1 == 1 && tipoCarta2 == 2){
+                            interfaz.CambiarAgua1(+1);
+                        }
+                        if(tipoCarta1 == 1 && tipoCarta2 == 3){
+                            interfaz.CambiarPlanta2(+1);
+                        }
+                        if(tipoCarta1 == 2 && tipoCarta2 == 1){
+                            interfaz.CambiarAgua2(+1);
+                        }
+                        if(tipoCarta1 == 3 && tipoCarta2 == 1){
+                            interfaz.CambiarPlanta1(+1);
+                        }
+                        if(tipoCarta1 == 2 && tipoCarta2 == 3){
+                            interfaz.CambiarFuego1(+1);
+                        }
+                        if(tipoCarta1 == 3 && tipoCarta2 == 2){
+                            interfaz.CambiarFuego2(+1);
+                        }
+
+                        for (int i = 0; i < 3; i++){
+                            fichas_jugador1[0][i].DesbloquearSprite();
                         }
 
                         // Finalizar ronda
                         turno = 1; // Reiniciar al turno del jugador 1
+                        interfaz.CambiarRonda(1);
                         break; // Salir del bucle
                         }
                     }
@@ -102,6 +120,11 @@ int main(){
             window.draw(fichas_jugador1[0][j]);
             window.draw(fichas_jugador2[0][j]);
         }
+        
+        //Actualizar interfaz
+        interfaz.Update();
+
+        window.draw(interfaz);
         window.display();
     }
     return 0;
