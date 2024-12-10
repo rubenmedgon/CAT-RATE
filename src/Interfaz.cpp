@@ -38,7 +38,7 @@ Interfaz::Interfaz(){
     planta2Text.setCharacterSize(40);
 
     resultadoText.setCharacterSize(50);
-    rondaText.setCharacterSize(40);
+    rondaText.setCharacterSize(30);
     
     pantallaNegra.setSize(Vector2f(1080, 900));
     pantallaNegra.setFillColor(Color::Black);

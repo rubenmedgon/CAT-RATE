@@ -2,22 +2,16 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <time.h> 
-#include "../include/Ficha.hpp"
-#include "../include/Interfaz.hpp"
+#include "Ficha.hpp"
+#include "Interfaz.hpp"
+#include "Ventana.hpp"
 
 using namespace std;
 using namespace sf;
 
 int main(){
-    //Ventana
-    RenderWindow window(VideoMode(1080,900),"CAT-RATE");
-
-    //Fondo
-    Texture texture;
-    if(!texture.loadFromFile("./assets/Salon.png")){
-        return -1;
-    }
-    Sprite sprite(texture);
+    //Ventana c/fondo
+    Ventana ventana("CAT-RATE", 1080, 900, "./assets/Salon.png");
 
     //Cargar Fichas
     vector<Texture> textures(3);
@@ -49,11 +43,11 @@ int main(){
     Interfaz interfaz;
 
     //Ciclo Principal
-    while (window.isOpen()){
+    while(ventana.obtenerVentana().isOpen()){
         Event event;
-        while (window.pollEvent(event)){
+        while (ventana.obtenerVentana().pollEvent(event)){
             if (event.type == Event::Closed){
-                window.close();
+                ventana.obtenerVentana().close();
             }
 
             if (event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left){
@@ -114,18 +108,17 @@ int main(){
             }
         }
 
-        window.clear();
-        window.draw(sprite);
+        ventana.limpiar();
         for (int j = 0; j < 3; j++) {
-            window.draw(fichas_jugador1[0][j]);
-            window.draw(fichas_jugador2[0][j]);
+            ventana.dibujar(fichas_jugador1[0][j]);
+            ventana.dibujar(fichas_jugador2[0][j]);
         }
         
         //Actualizar interfaz
         interfaz.Update();
 
-        window.draw(interfaz);
-        window.display();
+        ventana.dibujar(interfaz);
+        ventana.mostrar();
     }
     return 0;
 }
