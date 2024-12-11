@@ -43,6 +43,6 @@ Earn points and have fun! May the best cat win!
 
 ## Compile
 
-To compile the project, execute the next command:
+To compile the project, execute the following command:
 
 >make run--
