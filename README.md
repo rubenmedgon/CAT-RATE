@@ -1,16 +1,48 @@
 # CAT-RATE
 
-## Introducción
+![Poster]("C:\Users\famme\Downloads\2.png")
 
-CAT-RATE es un juego donde dos jugadores compiten entre si. Con el uso de una baraja de cartas los jugadores pueden defenderse y atacar, para asi obtener un ganador.
+## Introduction
 
----
+CAT-RATE is an exciting game of strategy and fun that takes the classic concept of "rock, paper, scissors" to a new feline level. Immerse yourself in a world where two adorable cats - one black and one grey - face off in an epic duel of natural elements.
 
-- Gato Naranja (Jugador No.1)
-- Gato Negro (Jugador No.2)
+## Gameplay
 
-## Compilar
+In CAT-RATE, two players challenge each other using three fundamental elements:
 
-Para compilar el proyecto, ejecutar el comando:
+🔥 Fire
+💧 Water
+🌿 Plant
+
+The rules of combat are simple but strategic:
+- Fire melts Plant
+- Plant absorbs Water
+- Water extinguishes Fire
+
+## Objective
+
+The objective is simple: beat your opponent by choosing the element that destroys him. Each round is an exciting battle of pure luck.
+
+## Characters
+
+- Grey Cat: Cunning and mysterious strategist
+- Orange Cat: Brave and determined competitor
+
+## Features
+
+- Interactive and dynamic gameplay
+- Easy to learn, hard to master gameplay
+- Great for all ages
+- Perfect for fun times with friends
+
+## How to Play
+
+Each player secretly chooses an element, the game automatically evaluates the answers and adds points to the winner of each round. There are 2 easy ways to win; by having won with 3 cards of the same type or by having won with one card of each type (fire, water and plant).
+
+Earn points and have fun! May the best cat win!
+
+## Compile
+
+To compile the project, execute the next command:
 
 >make run--
