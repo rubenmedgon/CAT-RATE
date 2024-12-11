@@ -4,8 +4,6 @@
 
 ## Introduction
 
-![Prueba_2](https://github.com/user-attachments/assets/5aa721a3-3650-419a-af0e-cd8f62f37666)
-
 CAT-RATE is an exciting game of strategy and fun that takes the classic concept of "rock, paper, scissors" to a new feline level. Immerse yourself in a world where two adorable cats - one black and one grey - face off in an epic duel of natural elements.
 
 ## Gameplay
