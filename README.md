@@ -1,6 +1,6 @@
 # CAT-RATE
 
-![Poster]("C:\Users\famme\Downloads\2.png")
+![Poster](https://github.com/user-attachments/assets/7493879f-259b-4b79-bb32-f5914c36da38)
 
 ## Introduction
 
