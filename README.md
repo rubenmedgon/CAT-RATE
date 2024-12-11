@@ -1,6 +1,6 @@
 # CAT-RATE
 
-![Prueba_1](https://github.com/user-attachments/assets/7d49e85b-b581-4ae6-a865-842f0884f3c4)
+![NEW](https://github.com/user-attachments/assets/c0c702b0-d67d-471e-a707-a4d87cc4dcf5)
 
 ## Introduction
 
