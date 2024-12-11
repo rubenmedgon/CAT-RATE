@@ -9,15 +9,21 @@
 using namespace std;
 using namespace sf;
 
+void cargarTexturas(vector<Texture> &textures) {
+    for (int i = 1; i <= 3; i++) {
+        if (!textures[i - 1].loadFromFile("./assets/" + to_string(i) + ".png")) {
+            cerr << "Error al cargar la textura " << i << endl;
+        }
+    }
+}
+
 int main(){
     //Ventana c/fondo
     Ventana ventana("CAT-RATE", 1080, 900, "./assets/Salon.png");
 
     //Cargar Fichas
     vector<Texture> textures(3);
-    for(int i=1; i<=3; i++){
-        if(!textures[i-1].loadFromFile("./assets/"+to_string(i)+".png")) cout<<"Error al cargar la textura "<<i<<endl;
-    }
+    cargarTexturas(textures);
 
     //Fichas Jugadores
     vector<vector<Ficha>> fichas_jugador1(1,vector<Ficha>(3,Ficha(0,0,0)));
