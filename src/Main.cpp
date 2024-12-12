@@ -2,9 +2,13 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <time.h> 
+#include <thread>
+#include <chrono>
 #include "Ficha.hpp"
 #include "Interfaz.hpp"
 #include "Ventana.hpp"
+#include "Arma.hpp"
+#include "Onomatopeya.hpp"
 
 using namespace std;
 using namespace sf;
@@ -15,6 +19,30 @@ void cargarTexturas(vector<Texture> &textures) {
             cerr << "Error al cargar la textura " << i << endl;
         }
     }
+}
+
+//CargarArmas
+Arma cargarArma(int tipoArchivo, int x, int y){
+    Texture texture;
+    if(!texture.loadFromFile("./assets/" + to_string(tipoArchivo) + ".png")) {
+        cout << "Error al cargar el arma" << endl;
+    }
+    Arma objeto(4, x, y);
+    objeto.DarTextura(texture);
+    objeto.DesbloquearSprite();
+    return objeto;
+}
+
+//CargarOnomaptopeyas
+Onomatopeya CargarOnomaptopeya(int tipoArchivo, int x, int y){
+    Texture texture;
+    if(!texture.loadFromFile("./assets/" + to_string(tipoArchivo) + ".png")) {
+        cout << "Error al cargar el arma" << endl;
+    }
+    Onomatopeya palabra(7, x, y);
+    palabra.DarTextura(texture);
+    palabra.DesbloquearSprite();
+    return palabra;
 }
 
 int main(){
@@ -48,7 +76,33 @@ int main(){
     //Interfaz
     Interfaz interfaz;
 
-    //Ciclo Principal
+    //Armas------------------------------------(acomodar píxeles de salida)
+    // Globos
+    Arma globo1 = cargarArma(4, 180, 100);
+    Arma globo2 = cargarArma(4, 1080-480, 100);
+
+    // Salsas
+    Arma salsa1 = cargarArma(5, 80, 100);
+    Arma salsa2 = cargarArma(5, 1080-480, 100);
+
+    // Macetas
+    Arma maceta1 = cargarArma(6, 180, 100);
+    Arma maceta2 = cargarArma(6, 1080-480, 100);
+
+    //Onomatopeyas------------------------------------(acomodar píxeles de salida)
+    // Globos
+    Onomatopeya splash1 = CargarOnomaptopeya(7, 180, 300);
+    Onomatopeya splash2 = CargarOnomaptopeya(7, 1080-480, 300);    
+
+    // Salsas
+    Onomatopeya foom1 = CargarOnomaptopeya(8, 180, 300);
+    Onomatopeya foom2 = CargarOnomaptopeya(8, 1080-480, 300);    
+
+    // Macetas
+    Onomatopeya crack1 = CargarOnomaptopeya(9, 180, 300);
+    Onomatopeya crack2 = CargarOnomaptopeya(9, 1080-480, 300);  
+    
+    //Ciclo Principal------------------------------------------------
     while(ventana.obtenerVentana().isOpen()){
         Event event;
         while (ventana.obtenerVentana().pollEvent(event)){
@@ -83,21 +137,69 @@ int main(){
                         // Comparar las cartas seleccionadas 1=agua 2=fuego 3=planta
                         if(tipoCarta1 == 1 && tipoCarta2 == 2){
                             interfaz.CambiarAgua1(+1);
+                            ventana.dibujar(interfaz);
+                            ventana.dibujar(globo2);
+                            ventana.mostrar();
+                            std::this_thread::sleep_for(std::chrono::seconds(2));
+                            ventana.dibujar(interfaz);
+                            ventana.dibujar(splash2);
+                            ventana.mostrar();
+                            std::this_thread::sleep_for(std::chrono::seconds(2));
                         }
                         if(tipoCarta1 == 1 && tipoCarta2 == 3){
                             interfaz.CambiarPlanta2(+1);
+                            ventana.dibujar(interfaz);
+                            ventana.dibujar(maceta1);
+                            ventana.mostrar();
+                            std::this_thread::sleep_for(std::chrono::seconds(2));
+                            ventana.dibujar(interfaz);
+                            ventana.dibujar(crack1);
+                            ventana.mostrar();
+                            std::this_thread::sleep_for(std::chrono::seconds(2));
                         }
                         if(tipoCarta1 == 2 && tipoCarta2 == 1){
                             interfaz.CambiarAgua2(+1);
+                            ventana.dibujar(interfaz);
+                            ventana.dibujar(globo1);
+                            ventana.mostrar();
+                            std::this_thread::sleep_for(std::chrono::seconds(2));
+                            ventana.dibujar(interfaz);
+                            ventana.dibujar(splash1);
+                            ventana.mostrar();
+                            std::this_thread::sleep_for(std::chrono::seconds(2));
                         }
                         if(tipoCarta1 == 3 && tipoCarta2 == 1){
                             interfaz.CambiarPlanta1(+1);
+                            ventana.dibujar(interfaz);
+                            ventana.dibujar(maceta2);
+                            ventana.mostrar();
+                            std::this_thread::sleep_for(std::chrono::seconds(2));
+                            ventana.dibujar(interfaz);
+                            ventana.dibujar(crack2);
+                            ventana.mostrar();
+                            std::this_thread::sleep_for(std::chrono::seconds(2));
                         }
                         if(tipoCarta1 == 2 && tipoCarta2 == 3){
                             interfaz.CambiarFuego1(+1);
+                            ventana.dibujar(interfaz);
+                            ventana.dibujar(salsa2);
+                            ventana.mostrar();
+                            std::this_thread::sleep_for(std::chrono::seconds(2));
+                            ventana.dibujar(interfaz);
+                            ventana.dibujar(foom2);
+                            ventana.mostrar();
+                            std::this_thread::sleep_for(std::chrono::seconds(2));
                         }
                         if(tipoCarta1 == 3 && tipoCarta2 == 2){
                             interfaz.CambiarFuego2(+1);
+                            ventana.dibujar(interfaz);
+                            ventana.dibujar(salsa1);
+                            ventana.mostrar();
+                            std::this_thread::sleep_for(std::chrono::seconds(2));
+                            ventana.dibujar(interfaz);
+                            ventana.dibujar(foom1);
+                            ventana.mostrar();
+                            std::this_thread::sleep_for(std::chrono::seconds(2));
                         }
 
                         for (int i = 0; i < 3; i++){
