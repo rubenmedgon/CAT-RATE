@@ -9,6 +9,7 @@
 #include "Ventana.hpp"
 #include "Arma.hpp"
 #include "Onomatopeya.hpp"
+#include "Kitty.hpp"
 
 using namespace std;
 using namespace sf;
