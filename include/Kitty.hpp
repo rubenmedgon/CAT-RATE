@@ -2,12 +2,9 @@
 #include <SFML/Graphics.hpp>
 
 class KItty : public Drawable {
-public:
-    Personaje(sf::Vector2f position, sf::Color color)
+public:  
+    Personaje(sf::Vector2f position)
     {
-        shape.setSize(sf::Vector2f(50, 50));
-        shape.setPosition(position); // Posición inicial cuadro
-        shape.setFillColor(color);
 
         // Cargar la imagen desde un archivo
         if (!texture.loadFromFile("assets/sprites_izq.png"))
@@ -26,11 +23,11 @@ public:
 
     void draw(sf::RenderWindow &window)
     {
-        window.draw(this->shape);
-        window.draw(this->sprite);
+        ventana.draw(this->shape);
+        ventana.draw(this->sprite);
     }
 
-    void update(){
+    void updateK(){
         // Actualizar el frame de la animación
         if (clock.getElapsedTime().asSeconds() >= frameTime)
         {
@@ -51,3 +48,4 @@ public:
     int frameHeight = 320;
 };
 
+ 
