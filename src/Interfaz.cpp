@@ -58,11 +58,11 @@ void Interfaz::update(){
     } 
 
     if(agua1>9 && agua2>9){
-        agua1Text.setString("A: "+to_string(agua1));
-        agua2Text.setString("A: "+to_string(agua2));
+        agua1Text.setString("W: "+to_string(agua1));
+        agua2Text.setString("W: "+to_string(agua2));
     }else{
-        agua1Text.setString("A: 0"+to_string(agua1));
-        agua2Text.setString("A: 0"+to_string(agua2));
+        agua1Text.setString("W: 0"+to_string(agua1));
+        agua2Text.setString("W: 0"+to_string(agua2));
     } 
 
     if(planta1>9 && planta2>9){
