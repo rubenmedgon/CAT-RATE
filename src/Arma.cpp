@@ -9,26 +9,9 @@ Arma::Arma(int tip, int x, int y){
 void Arma::DarTextura(Texture tex){
     texture = tex;
 }
-/*
-void Arma::BloquearSprite(){
-    sprite2.setTexture(textureBlock);
-}
-*/
 
 void Arma::DesbloquearSprite(){
     sprite2.setTexture(texture);
-}
-
-int Arma::ConsultarTipo(){
-    return tipo;
-}
-
-bool Arma::ConsultarEstado(){
-    return descubierta;
-}
-
-void Arma::Descubrir(){
-    descubierta = true;
 }
 
 void Arma::draw(RenderTarget& rt, RenderStates rs) const{
