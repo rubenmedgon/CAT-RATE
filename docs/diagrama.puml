@@ -1,5 +1,16 @@
 @startuml diagrama
 
+class Usuario{}
+
+Ventana "1" o-- "1" Interfaz
+Ventana "1"  o-- "6" Ficha
+Ventana "1" o-- "6" Arma
+Ventana "1" o-- "6" Onomatopeya
+Ventana "1" o-- "2" Animacion
+Interfaz "1" o-- "2" Ficha
+Usuario "2" o-- "1" Ventana
+Usuario "2" --|> "2" Animacion
+
 class Ficha{
 - texture: Texture
 - textureBlock: Texture

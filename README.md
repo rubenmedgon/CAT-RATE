@@ -84,6 +84,10 @@ To compile the project, execute the following command:
 
 3. **Make:** (optional, for using the provided makefile)
 
+## Diagram
+
+![DIAGRAMA](https://github.com/user-attachments/assets/02dc8165-f198-4fab-9291-f3805f27bf6d)
+
 ## Contact Us
 
 For questions or feedback, feel free to reach out to:
