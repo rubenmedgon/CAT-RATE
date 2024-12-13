@@ -61,10 +61,6 @@ The objective is simple: beat your opponent by choosing the element that destroy
 - Great for all ages.
 - Perfect for fun times with friends.
 
-## Aditional Screenshots
-
-:o
-
 ## Compile
 
 To compile the project, execute the following command:
