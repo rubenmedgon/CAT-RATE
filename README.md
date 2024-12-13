@@ -60,7 +60,7 @@ The objective is simple: beat your opponent by choosing the element that destroy
 ## Features
 
 - Interactive and dynamic gameplay.
-- Easy to learn, hard to master.gameplay
+- Easy to learn, hard to master gameplay.
 - Great for all ages.
 - Perfect for fun times with friends.
 
