@@ -36,7 +36,14 @@ The rules of combat are simple but strategic:
 
 ## Screenshots
 
-:o
+- Principal menu.
+![WhatsApp Image 2024-12-12 at 23 32 29](https://github.com/user-attachments/assets/40e8a548-a917-4bd3-bf26-73133be3cf57)
+
+- Combat image.
+![Captura de pantalla 2024-12-12 230555](https://github.com/user-attachments/assets/9b70e653-4977-410f-aa5d-cf4a562611a7)
+
+- Winner text.
+![Captura de pantalla 2024-12-12 230622](https://github.com/user-attachments/assets/fd9a257c-3d8d-4e9d-845c-14162cc9e744)
 
 ## Objective
 
