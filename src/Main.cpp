@@ -213,7 +213,7 @@ int main(){
 
                         for (int i = 0; i < 3; i++){
                             fichas_jugador1[0][i].desbloquearSprite();
-                        }
+                         }
 
                         // Finalizar ronda
                         turno = 1; // Reiniciar al turno del jugador 1
