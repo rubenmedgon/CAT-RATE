@@ -1,0 +1,102 @@
+@startuml diagrama
+
+class Ficha{
+- texture: Texture
+- textureBlock: Texture
+- sprite: Sprite
+- descubierta: bool
+- tipo: int
++ Ficha(tip: int, x: int, y: int)
++ AsignarTextura(tex: Texture): void
++ BloquearSprite(): void
++ DesbloquearSprite(): void
++ ConsultarTipo(): int
++ ConsultarEstado(): bool
++ Descubrir(): void
++ draw(rt: RenderTarget, rs: RenderStates): void
+}
+
+class Interfaz{
+- fuego1: int
+- agua1: int
+- planta1: int
+- fuego2: int
+- agua2: int
+- planta2: int
+- ronda: int
+- font: Font
+- fuego1Text: Text
+- agua1Text: Text
+- planta1Text: Text
+- fuego2Text: Text
+- agua2Text: Text
+- planta2Text: Text
+- resultadoText: Text
+- rondaText: Text
+- pantallaNegra: RectangleShape
+- mostrarPantallaNegra: bool
++ Interfaz()
++ Update(): void
++ CambiarRonda(crum: int): void
++ CambiarFuego1(mod: int): void
++ CambiarAgua1(mod: int): void
++ CambiarPlanta1(mod: int): void
++ CambiarFuego2(mod: int): void
++ CambiarAgua2(mod: int): void
++ CambiarPlanta2(mod: int): void
++ ConsultarFuego1(): int
++ ConsultarAgua1(): int
++ ConsultarPlanta1(): int
++ ConsultarFuego2(): int
++ ConsultarAgua2(): int
++ ConsultarPlanta2(): int
++ draw(rt: RenderTarget, rs: RenderStates): void
+}
+
+class Ventana{
+- window: RenderWindow
+- fondo: Sprite
+- texturaFondo: Texture
++ Ventana(title: string, width: int, height: int, route: string)
++ ObtenerVentana(): RenderWindow
++ dibujar(elemento: Drawable): void
++ Limpiar(): void
++ Mostrar(): void
+}
+
+class Arma{
+- texture: Texture
+- sprite2: Sprite
+- tipo: int
++ Arma(tip: int, x: int, y: int)
++ DarTextura(tex: Texture): void
++ DesbloquearSprite(): void
++ draw(rt: RenderTarget, rs: RenderStates): void
+}
+
+class Onomatopeya{
+- texture: Texture
+- sprite2: Sprite
+- tipo: int
++ Arma(tip: int, x: int, y: int)
++ DarTextura(tex: Texture): void
++ DesbloquearSprite(): void
++ draw(rt: RenderTarget, rs: RenderStates): void
+}
+
+class Animacion{
+- sprite: Sprite
+- texture: Texture
+- clock: Clock
+- currentFrame: int
+- numFrames: int
+- frameTime: float
+- frameWidth: int
+- frameHeight: int
++ Animacion(texturePath: string, numFrames: int, frameTime: float, frameWidth: int, frameHeight: int)
++ setPosition(x: float, y: float): void
++ update(): void
+- draw(target: RenderTarget, states: RenderStates): void
+}
+
+@enduml
