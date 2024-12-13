@@ -91,25 +91,25 @@ int main(){
     Arma globo2 = cargarArma(4, 1080-480, 100);
 
     // Salsas
-    Arma salsa1 = cargarArma(5, 80, 100);
+    Arma salsa1 = cargarArma(5, 180, 100);
     Arma salsa2 = cargarArma(5, 1080-480, 100);
 
     // Macetas
-    Arma maceta1 = cargarArma(6, 180, 100);
+    Arma maceta1 = cargarArma(6, 170, 100);
     Arma maceta2 = cargarArma(6, 1080-480, 100);
 
     //Onomatopeyas------------------------------------(acomodar píxeles de salida)
     // Globos
-    Onomatopeya splash1 = CargarOnomaptopeya(7, 180, 300);
-    Onomatopeya splash2 = CargarOnomaptopeya(7, 1080-480, 300);    
+    Onomatopeya splash1 = CargarOnomaptopeya(7, 70, 320);
+    Onomatopeya splash2 = CargarOnomaptopeya(7, 1080-550, 300);    
 
     // Salsas
-    Onomatopeya foom1 = CargarOnomaptopeya(8, 180, 300);
-    Onomatopeya foom2 = CargarOnomaptopeya(8, 1080-480, 300);    
+    Onomatopeya foom1 = CargarOnomaptopeya(8, 60, 300);
+    Onomatopeya foom2 = CargarOnomaptopeya(8, 1080-600, 300);    
 
     // Macetas
-    Onomatopeya crack1 = CargarOnomaptopeya(9, 180, 300);
-    Onomatopeya crack2 = CargarOnomaptopeya(9, 1080-480, 300);  
+    Onomatopeya crack1 = CargarOnomaptopeya(9, 60, 300);
+    Onomatopeya crack2 = CargarOnomaptopeya(9, 1080-550, 300);  
     
     //Ciclo Principal------------------------------------------------
     while(ventana.obtenerVentana().isOpen()){
