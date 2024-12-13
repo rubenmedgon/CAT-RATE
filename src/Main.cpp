@@ -52,10 +52,10 @@ int main(){
     //Ventana c/fondo
     Ventana ventana("CAT-RATE", 1080, 900, "./assets/Salon.png");
 
-    Animacion animacion("./assets/G_SI.png", 4, 0.1f, 225, 220);
+    Animacion animacion("./assets/G_SI.png", 4, 0.1f, 169, 220);
     animacion.setPosition(200, 470);
 
-    Animacion animacion2("./assets/G_SD.png", 4, 0.1f, 225, 220);
+    Animacion animacion2("./assets/G_SD.png", 4, 0.1f, 169, 220);
     animacion2.setPosition(680, 470);
 
     //Cargar Fichas
