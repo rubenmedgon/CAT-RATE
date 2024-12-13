@@ -7,12 +7,12 @@ class Ficha{
 - descubierta: bool
 - tipo: int
 + Ficha(tip: int, x: int, y: int)
-+ AsignarTextura(tex: Texture): void
-+ BloquearSprite(): void
-+ DesbloquearSprite(): void
-+ ConsultarTipo(): int
-+ ConsultarEstado(): bool
-+ Descubrir(): void
++ asignarTextura(tex: Texture): void
++ bloquearSprite(): void
++ desbloquearSprite(): void
++ consultarTipo(): int
++ consultarEstado(): bool
++ descubrir(): void
 + draw(rt: RenderTarget, rs: RenderStates): void
 }
 
@@ -36,20 +36,20 @@ class Interfaz{
 - pantallaNegra: RectangleShape
 - mostrarPantallaNegra: bool
 + Interfaz()
-+ Update(): void
-+ CambiarRonda(crum: int): void
-+ CambiarFuego1(mod: int): void
-+ CambiarAgua1(mod: int): void
-+ CambiarPlanta1(mod: int): void
-+ CambiarFuego2(mod: int): void
-+ CambiarAgua2(mod: int): void
-+ CambiarPlanta2(mod: int): void
-+ ConsultarFuego1(): int
-+ ConsultarAgua1(): int
-+ ConsultarPlanta1(): int
-+ ConsultarFuego2(): int
-+ ConsultarAgua2(): int
-+ ConsultarPlanta2(): int
++ update(): void
++ cambiarRonda(crum: int): void
++ cambiarFuego1(mod: int): void
++ cambiarAgua1(mod: int): void
++ cambiarPlanta1(mod: int): void
++ cambiarFuego2(mod: int): void
++ cambiarAgua2(mod: int): void
++ cambiarPlanta2(mod: int): void
++ consultarFuego1(): int
++ consultarAgua1(): int
++ consultarPlanta1(): int
++ consultarFuego2(): int
++ consultarAgua2(): int
++ consultarPlanta2(): int
 + draw(rt: RenderTarget, rs: RenderStates): void
 }
 
@@ -69,8 +69,8 @@ class Arma{
 - sprite2: Sprite
 - tipo: int
 + Arma(tip: int, x: int, y: int)
-+ DarTextura(tex: Texture): void
-+ DesbloquearSprite(): void
++ darTextura(tex: Texture): void
++ desbloquearSprite(): void
 + draw(rt: RenderTarget, rs: RenderStates): void
 }
 
@@ -79,8 +79,8 @@ class Onomatopeya{
 - sprite2: Sprite
 - tipo: int
 + Arma(tip: int, x: int, y: int)
-+ DarTextura(tex: Texture): void
-+ DesbloquearSprite(): void
++ darTextura(tex: Texture): void
++ desbloquearSprite(): void
 + draw(rt: RenderTarget, rs: RenderStates): void
 }
 

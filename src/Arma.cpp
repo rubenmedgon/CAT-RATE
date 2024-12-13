@@ -5,11 +5,11 @@ Arma::Arma(int tip, int x, int y){
    sprite2.setPosition(x, y);
 }
 
-void Arma::DarTextura(Texture tex){
+void Arma::darTextura(Texture tex){
     texture = tex;
 }
 
-void Arma::DesbloquearSprite(){
+void Arma::desbloquearSprite(){
     sprite2.setTexture(texture);
 }
 

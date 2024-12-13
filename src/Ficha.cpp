@@ -6,27 +6,27 @@ Ficha::Ficha(int tip, int x, int y){
    if(!textureBlock.loadFromFile("./assets/Candado.png")) cout<<"Error al cargar textura Block";
 }
 
-void Ficha::AsignarTextura(Texture tex){
+void Ficha::asignarTextura(Texture tex){
     texture=tex;
 }
 
-void Ficha::BloquearSprite(){
+void Ficha::bloquearSprite(){
     sprite.setTexture(textureBlock);
 }
 
-void Ficha::DesbloquearSprite(){
+void Ficha::desbloquearSprite(){
     sprite.setTexture(texture);
 }
 
-int Ficha::ConsultarTipo(){
+int Ficha::consultarTipo(){
     return tipo;
 }
 
-bool Ficha::ConsultarEstado(){
+bool Ficha::consultarEstado(){
     return descubierta;
 }
 
-void Ficha::Descubrir(){
+void Ficha::descubrir(){
     descubierta=true;
 }
 

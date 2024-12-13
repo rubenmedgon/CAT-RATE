@@ -5,11 +5,11 @@ Onomatopeya::Onomatopeya(int tip, int x, int y){
    sprite3.setPosition(x, y);
 }
 
-void Onomatopeya::DarTextura(Texture tex){
+void Onomatopeya::darTextura(Texture tex){
     texture = tex;
 }
 
-void Onomatopeya::DesbloquearSprite(){
+void Onomatopeya::desbloquearSprite(){
     sprite3.setTexture(texture);
 }
 

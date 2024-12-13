@@ -11,7 +11,7 @@ class Onomatopeya : public Drawable {
         int tipo;
     public:
         Onomatopeya(int tip, int x, int y);
-        void DarTextura(Texture tex);
-        void DesbloquearSprite();
+        void darTextura(Texture tex);
+        void desbloquearSprite();
         virtual void draw(RenderTarget& rt, RenderStates rs) const;
 };

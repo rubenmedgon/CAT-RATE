@@ -29,8 +29,8 @@ Arma cargarArma(int tipoArchivo, int x, int y){
         cout << "Error al cargar el arma" << endl;
     }
     Arma objeto(4, x, y);
-    objeto.DarTextura(texture);
-    objeto.DesbloquearSprite();
+    objeto.darTextura(texture);
+    objeto.desbloquearSprite();
     return objeto;
 }
 
@@ -41,8 +41,8 @@ Onomatopeya CargarOnomaptopeya(int tipoArchivo, int x, int y){
         cout << "Error al cargar el arma" << endl;
     }
     Onomatopeya palabra(7, x, y);
-    palabra.DarTextura(texture);
-    palabra.DesbloquearSprite();
+    palabra.darTextura(texture);
+    palabra.desbloquearSprite();
     return palabra;
 }
 
@@ -68,12 +68,12 @@ int main(){
 
     for (int j = 0; j < 3; j++) {
         fichas_jugador1[0][j] = Ficha(j+1, 150*j+(j+3)*10, 740); // Tipos: 1, 2, 3
-        fichas_jugador1[0][j].AsignarTextura(textures[j]);
-        fichas_jugador1[0][j].DesbloquearSprite();
+        fichas_jugador1[0][j].asignarTextura(textures[j]);
+        fichas_jugador1[0][j].desbloquearSprite();
 
         fichas_jugador2[0][j] = Ficha(j+1, 1080-(150*(3-j))-(10*(3-j)), 740); 
-        fichas_jugador2[0][j].AsignarTextura(textures[j]);
-        fichas_jugador2[0][j].DesbloquearSprite();
+        fichas_jugador2[0][j].asignarTextura(textures[j]);
+        fichas_jugador2[0][j].desbloquearSprite();
     }
  
     //Click(Auxiliar)
@@ -124,13 +124,13 @@ int main(){
                     for (int j = 0; j < 3; j++){
                         IntRect rect(150 * j + (j + 3) * 10, 740, 150, 150);
                         if (rect.contains(event.mouseButton.x, event.mouseButton.y)){
-                            fichas_jugador1[0][j].BloquearSprite();
-                            tipoCarta1 = fichas_jugador1[0][j].ConsultarTipo(); // Registra el tipo de carta
+                            fichas_jugador1[0][j].bloquearSprite();
+                            tipoCarta1 = fichas_jugador1[0][j].consultarTipo(); // Registra el tipo de carta
                             
                             
                             for (int k = 0; k < 3; k++) {
                                 if (k != j) {
-                                    fichas_jugador1[0][k].BloquearSprite();
+                                    fichas_jugador1[0][k].bloquearSprite();
                                 }
                             }
                             turno = 2; // Cambiar al turno del jugador 2
@@ -141,11 +141,11 @@ int main(){
                     for (int j = 0; j < 3; j++){
                         IntRect rect(1080 - (150 * (3 - j)) - (10 * (3 - j)), 740, 150, 150);
                         if (rect.contains(event.mouseButton.x, event.mouseButton.y)){
-                            tipoCarta2 = fichas_jugador2[0][j].ConsultarTipo(); // Registrar el tipo de carta
+                            tipoCarta2 = fichas_jugador2[0][j].consultarTipo(); // Registrar el tipo de carta
 
                         // Comparar las cartas seleccionadas 1=agua 2=fuego 3=planta
                         if(tipoCarta1 == 1 && tipoCarta2 == 2){
-                            interfaz.CambiarAgua1(+1);
+                            interfaz.cambiarAgua1(+1);
                             ventana.dibujar(interfaz);
                             ventana.dibujar(globo2);
                             ventana.mostrar();
@@ -156,7 +156,7 @@ int main(){
                             std::this_thread::sleep_for(std::chrono::seconds(2));
                         }
                         if(tipoCarta1 == 1 && tipoCarta2 == 3){
-                            interfaz.CambiarPlanta2(+1);
+                            interfaz.cambiarPlanta2(+1);
                             ventana.dibujar(interfaz);
                             ventana.dibujar(maceta1);
                             ventana.mostrar();
@@ -167,7 +167,7 @@ int main(){
                             std::this_thread::sleep_for(std::chrono::seconds(2));
                         }
                         if(tipoCarta1 == 2 && tipoCarta2 == 1){
-                            interfaz.CambiarAgua2(+1);
+                            interfaz.cambiarAgua2(+1);
                             ventana.dibujar(interfaz);
                             ventana.dibujar(globo1);
                             ventana.mostrar();
@@ -178,7 +178,7 @@ int main(){
                             std::this_thread::sleep_for(std::chrono::seconds(2));
                         }
                         if(tipoCarta1 == 3 && tipoCarta2 == 1){
-                            interfaz.CambiarPlanta1(+1);
+                            interfaz.cambiarPlanta1(+1);
                             ventana.dibujar(interfaz);
                             ventana.dibujar(maceta2);
                             ventana.mostrar();
@@ -189,7 +189,7 @@ int main(){
                             std::this_thread::sleep_for(std::chrono::seconds(2));
                         }
                         if(tipoCarta1 == 2 && tipoCarta2 == 3){
-                            interfaz.CambiarFuego1(+1);
+                            interfaz.cambiarFuego1(+1);
                             ventana.dibujar(interfaz);
                             ventana.dibujar(salsa2);
                             ventana.mostrar();
@@ -200,7 +200,7 @@ int main(){
                             std::this_thread::sleep_for(std::chrono::seconds(2));
                         }
                         if(tipoCarta1 == 3 && tipoCarta2 == 2){
-                            interfaz.CambiarFuego2(+1);
+                            interfaz.cambiarFuego2(+1);
                             ventana.dibujar(interfaz);
                             ventana.dibujar(salsa1);
                             ventana.mostrar();
@@ -212,12 +212,12 @@ int main(){
                         }
 
                         for (int i = 0; i < 3; i++){
-                            fichas_jugador1[0][i].DesbloquearSprite();
+                            fichas_jugador1[0][i].desbloquearSprite();
                         }
 
                         // Finalizar ronda
                         turno = 1; // Reiniciar al turno del jugador 1
-                        interfaz.CambiarRonda(1);
+                        interfaz.cambiarRonda(1);
                         break; // Salir del bucle
                         }
                     }
@@ -235,7 +235,7 @@ int main(){
         }
 
         //Actualizar interfaz
-        interfaz.Update();
+        interfaz.update();
 
         ventana.dibujar(animacion);
         ventana.dibujar(animacion2);

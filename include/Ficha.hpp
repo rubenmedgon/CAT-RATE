@@ -12,11 +12,11 @@ class Ficha : public Drawable{
         int tipo;
     public:
         Ficha(int tip, int x, int y);
-        void AsignarTextura(Texture tex);
-        void BloquearSprite();
-        void DesbloquearSprite();
-        int ConsultarTipo();
-        bool ConsultarEstado();
-        void Descubrir();
+        void asignarTextura(Texture tex);
+        void bloquearSprite();
+        void desbloquearSprite();
+        int consultarTipo();
+        bool consultarEstado();
+        void descubrir();
         virtual void draw(RenderTarget& rt,RenderStates rs) const;
 };

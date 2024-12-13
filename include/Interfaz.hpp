@@ -21,22 +21,22 @@ class Interfaz : public Drawable{
 
     public:
         Interfaz();
-        void Update();
-        void CambiarFuego1(int mod);
-        void CambiarAgua1(int mod);
-        void CambiarPlanta1(int mod);
-        int ConsultarFuego1();
-        int ConsultarAgua1();
-        int ConsultarPlanta1();
+        void update();
+        void cambiarFuego1(int mod);
+        void cambiarAgua1(int mod);
+        void cambiarPlanta1(int mod);
+        int consultarFuego1();
+        int consultarAgua1();
+        int consultarPlanta1();
 
-        void CambiarFuego2(int mod);
-        void CambiarAgua2(int mod);
-        void CambiarPlanta2(int mod);
-        int ConsultarFuego2();
-        int ConsultarAgua2();
-        int ConsultarPlanta2();
+        void cambiarFuego2(int mod);
+        void cambiarAgua2(int mod);
+        void cambiarPlanta2(int mod);
+        int consultarFuego2();
+        int consultarAgua2();
+        int consultarPlanta2();
 
-        void CambiarRonda(int crum);
-        int ConsultarRonda();
+        void cambiarRonda(int crum);
+        int consultarRonda();
         virtual void draw(RenderTarget &rt, RenderStates rs) const;
 };

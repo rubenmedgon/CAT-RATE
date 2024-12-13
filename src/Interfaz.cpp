@@ -45,7 +45,7 @@ Interfaz::Interfaz(){
     mostrarPantallaNegra = false;
 }
 
-void Interfaz::Update(){
+void Interfaz::update(){
     rondaText.setString("Round: " + to_string(ronda));
     rondaText.setFillColor(Color::White);
 
@@ -86,55 +86,55 @@ void Interfaz::Update(){
     }
 }
 
-void Interfaz::CambiarRonda(int crum){
+void Interfaz::cambiarRonda(int crum){
     ronda+=crum;
 }
 
-void Interfaz::CambiarFuego1(int mod){
+void Interfaz::cambiarFuego1(int mod){
     fuego1+=mod;
 }
 
-void Interfaz::CambiarAgua1(int mod){
+void Interfaz::cambiarAgua1(int mod){
     agua1+=mod;
 }
 
-void Interfaz::CambiarPlanta1(int mod){
+void Interfaz::cambiarPlanta1(int mod){
     planta1+=mod;
 }
 
-int Interfaz::ConsultarFuego1(){
+int Interfaz::consultarFuego1(){
     return fuego1;
 }
 
-int Interfaz::ConsultarAgua1(){
+int Interfaz::consultarAgua1(){
     return agua1;
 }
 
-int Interfaz::ConsultarPlanta1(){
+int Interfaz::consultarPlanta1(){
     return planta1;
 }
 
-void Interfaz::CambiarFuego2(int mod){
+void Interfaz::cambiarFuego2(int mod){
     fuego2+=mod;
 }
 
-void Interfaz::CambiarAgua2(int mod){
+void Interfaz::cambiarAgua2(int mod){
     agua2+=mod;
 }
 
-void Interfaz::CambiarPlanta2(int mod){
+void Interfaz::cambiarPlanta2(int mod){
     planta2+=mod;
 }
 
-int Interfaz::ConsultarFuego2(){
+int Interfaz::consultarFuego2(){
     return fuego2;
 }
 
-int Interfaz::ConsultarAgua2(){
+int Interfaz::consultarAgua2(){
     return agua2;
 }
 
-int Interfaz::ConsultarPlanta2(){
+int Interfaz::consultarPlanta2(){
     return planta2;
 }
 
