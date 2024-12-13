@@ -9,7 +9,7 @@
 #include "Ventana.hpp"
 #include "Arma.hpp"
 #include "Onomatopeya.hpp"
-#include "Kitty.hpp"
+#include "Animacion.hpp"
 
 using namespace std;
 using namespace sf;
@@ -51,6 +51,12 @@ double velocidad = 0.1;
 int main(){
     //Ventana c/fondo
     Ventana ventana("CAT-RATE", 1080, 900, "./assets/Salon.png");
+
+    Animacion animacion("./assets/G_SI.png", 4, 0.1f, 225, 220);
+    animacion.setPosition(200, 470);
+
+    Animacion animacion2("./assets/G_SD.png", 4, 0.1f, 225, 220);
+    animacion2.setPosition(680, 470);
 
     //Cargar Fichas
     vector<Texture> textures(3);
@@ -105,11 +111,6 @@ int main(){
     Onomatopeya crack1 = CargarOnomaptopeya(9, 180, 300);
     Onomatopeya crack2 = CargarOnomaptopeya(9, 1080-480, 300);  
     
-    //Gatucos----------------------------------------------------------
-    Kitty izqK(Vector2f(0,0));
-    Kitty derK(Vector2f(0,230));
-
-
     //Ciclo Principal------------------------------------------------
     while(ventana.obtenerVentana().isOpen()){
         Event event;
@@ -224,20 +225,20 @@ int main(){
             }
         }
 
+        animacion.update();
+        animacion2.update();
+
         ventana.limpiar();
         for (int j = 0; j < 3; j++) {
             ventana.dibujar(fichas_jugador1[0][j]);
             ventana.dibujar(fichas_jugador2[0][j]);
         }
-        ventana.dibujar(izqK);
-        ventana.dibujar(derK);
 
         //Actualizar interfaz
         interfaz.Update();
 
-        izqK.updateK();
-
-
+        ventana.dibujar(animacion);
+        ventana.dibujar(animacion2);
         ventana.dibujar(interfaz);
 
         ventana.mostrar();

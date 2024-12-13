@@ -1,5 +1,5 @@
 # Variables
-SRC = ./src/Main.cpp ./src/Ventana.cpp ./src/Ficha.cpp ./src/Interfaz.cpp ./src/Arma.cpp ./src/Onomatopeya.cpp  ./src/Kitty.cpp
+SRC = ./src/Main.cpp ./src/Ventana.cpp ./src/Ficha.cpp ./src/Interfaz.cpp ./src/Arma.cpp ./src/Onomatopeya.cpp  ./src/Animacion.cpp
 INCLUDE = -I./include
 LIBS = -lsfml-graphics -lsfml-system -lsfml-window
 EXEC = Game
