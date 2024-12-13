@@ -46,6 +46,8 @@ Onomatopeya CargarOnomaptopeya(int tipoArchivo, int x, int y){
     return palabra;
 }
 
+double velocidad = 0.1;
+
 int main(){
     //Ventana c/fondo
     Ventana ventana("CAT-RATE", 1080, 900, "./assets/Salon.png");
@@ -103,6 +105,11 @@ int main(){
     Onomatopeya crack1 = CargarOnomaptopeya(9, 180, 300);
     Onomatopeya crack2 = CargarOnomaptopeya(9, 1080-480, 300);  
     
+    //Gatucos----------------------------------------------------------
+    //Kitty izqK(Vector2f(300,200));
+    //Kitty derK(Vector2f(1080-300,200));
+
+
     //Ciclo Principal------------------------------------------------
     while(ventana.obtenerVentana().isOpen()){
         Event event;

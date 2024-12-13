@@ -1,16 +1,11 @@
 #include "Kitty.hpp"
 
-double velocidad = 0.1;
-
-Kitty::kitty(Vector2f position)
+Kitty::Kitty(Vector2f position)
 {
     // Cargar la imagen desde un archivo
-    if (!texture.loadFromFile("assets/.png"))
-    {
-        // Podrías agregar manejo de error aquí
-    }
-    this->sprite =Sprite(texture);
-    this->sprite.setPosition(position); // Posición inicial sprite
+    if (!texture.loadFromFile("./assets/sprites_gatos.png")) cout << "Error al cargar textura Block";
+    this->sprite4=Sprite(texture);
+    this->sprite4.setPosition(position); // Posición inicial sprite
 }
 
 void Kitty::move(float offsetX, float offsetY)
@@ -29,7 +24,7 @@ void Kitty::updateK()
     if (clock.getElapsedTime().asSeconds() >= frameTime)
     {
         currentFrame = (currentFrame + 1) % numFrames;
-        sprite.setTextureRect(sf::IntRect((currentFrame * 64)+17, 133, 64, 36));
+        sprite4.setTextureRect(sf::IntRect((currentFrame * 64)+17, 133, 64, 36));
         clock.restart();
     }
 }
