@@ -106,8 +106,8 @@ int main(){
     Onomatopeya crack2 = CargarOnomaptopeya(9, 1080-480, 300);  
     
     //Gatucos----------------------------------------------------------
-    //Kitty izqK(Vector2f(300,200));
-    //Kitty derK(Vector2f(1080-300,200));
+    Kitty izqK(Vector2f(0,0));
+    Kitty derK(Vector2f(0,230));
 
 
     //Ciclo Principal------------------------------------------------
@@ -229,11 +229,17 @@ int main(){
             ventana.dibujar(fichas_jugador1[0][j]);
             ventana.dibujar(fichas_jugador2[0][j]);
         }
-        
+        ventana.dibujar(izqK);
+        ventana.dibujar(derK);
+
         //Actualizar interfaz
         interfaz.Update();
 
+        izqK.updateK();
+
+
         ventana.dibujar(interfaz);
+
         ventana.mostrar();
     }
     return 0;

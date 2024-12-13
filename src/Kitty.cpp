@@ -1,9 +1,13 @@
 #include "Kitty.hpp"
 
-Kitty::Kitty(Vector2f position)
-{
+Kitty::Kitty(sf::Vector2f position) {
+    // Inicialización del objeto
+    shape.setSize(sf::Vector2f(40, 40));
+
+
     // Cargar la imagen desde un archivo
     if (!texture.loadFromFile("./assets/sprites_gatos.png")) cout << "Error al cargar textura Block";
+    
     this->sprite4=Sprite(texture);
     this->sprite4.setPosition(position); // Posición inicial sprite
 }
@@ -12,12 +16,11 @@ void Kitty::move(float offsetX, float offsetY)
 {
     sprite4.move(offsetX, offsetY);
 }
-/**
-void Kitty::draw(sf::RenderWindow &window)
-{ 
-    window.draw(this->sprite4);
+
+void Kitty::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+    target.draw(sprite4, states);
 }
-*/
+
 void Kitty::updateK()
 {
     // Actualizar el frame de la animación
@@ -29,7 +32,7 @@ void Kitty::updateK()
     }
 }
 
-
+/*/
 void Kitty::draw(RenderTarget& rt, RenderStates rs) const{
     rt.draw(sprite4, rs);
-}
+}*/
