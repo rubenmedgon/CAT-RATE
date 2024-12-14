@@ -15,7 +15,7 @@ The game is visually appealing and designed to keep players entertained with its
 🌿 Plant
 
 The rules of combat are simple but strategic:
-- Fire melts Plant
+- Fire burns Plant
 - Plant absorbs Water
 - Water extinguishes Fire
 

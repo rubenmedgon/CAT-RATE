@@ -110,4 +110,11 @@ class Animacion{
 - draw(target: RenderTarget, states: RenderStates): void
 }
 
+Ventana "1" o-- "1" Interfaz
+Ventana "1"  o-- "6" Ficha
+Ventana "1" o-- "6" Arma
+Ventana "1" o-- "6" Onomatopeya
+Ventana "1" o-- "2" Animacion
+Interfaz "1" o-- "2" Ficha
+
 @enduml
