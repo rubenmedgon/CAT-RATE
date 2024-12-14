@@ -86,7 +86,7 @@ To compile the project, execute the following command:
 
 ## Diagram
 
-![DIAGRAMA](https://github.com/user-attachments/assets/02dc8165-f198-4fab-9291-f3805f27bf6d)
+![DIAGRAMA](./docs/Diagrama.png)
 
 ## Contact Us
 
